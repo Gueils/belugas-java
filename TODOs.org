@@ -1,0 +1,9 @@
+* TODO
+** Init Repo
+
+* Thoughts
+** Build Systems
+*** Gradle
+    Frekele has many dockerimages for dif Gradles versions
+*** Ant + Ivy
+*** Maven
