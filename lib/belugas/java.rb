@@ -1,5 +1,9 @@
 require "thor"
 require "json"
+require "belugas/java/extractor"
+require "belugas/java/identifier"
+require "belugas/java/feature/handler"
+require "belugas/java/java_file"
 require "belugas/java/dispatcher"
 
 module Belugas
@@ -7,10 +11,10 @@ module Belugas
     class Sonar < Thor
       package_name "belugas-java"
 
-      desc "analyze --requirements-path=/app/code", "Java feature detection JSON"
-      method_option "requirements-path", type: :string, default: "", required: false, aliases: "-p"
+      desc "analyze", "Java feature detection JSON"
       def analyze
-        dispatcher = Belugas::Java::Dispatcher.new(options["requirements-path"])
+        java_file_path = Belugas::Java::JavaFile.get("/code")
+        dispatcher = Belugas::Java::Dispatcher.new(java_file_path)
         dispatcher.render
       end
     end
