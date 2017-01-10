@@ -1,3 +1,5 @@
+![belugas-java.png](belugas-java.png)
+
 ## Overview
 
 `belugas-java` is a command line interface for the Belugas feature detection analysis
