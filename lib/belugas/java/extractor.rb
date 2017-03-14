@@ -25,7 +25,7 @@ module Belugas
         Zip::File.open(@path, Zip::File::CREATE) do |zip_file|
           zip_file.each do |file|
             if file.name.split(".")[1] == "class"
-              file_path = File.join("/tmp", file.name)
+              file_path = File.join("/tmp", file.name.split("/").last)
               zip_file.extract(file, file_path) unless File.exists?(file_path)
               break
             end
