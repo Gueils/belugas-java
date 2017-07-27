@@ -1,0 +1,23 @@
+version: "2"
+
+volumes:
+  gems:
+    driver: local
+
+services:
+  console: &console
+    image: icalialabs/belugas-java:development
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    command: bash
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+      - gems:/usr/local/bundle
+    stdin_open: true
+    tty: true
+
+  test:
+    <<: *console
+    command: bundle exec guard -g god_is_watching

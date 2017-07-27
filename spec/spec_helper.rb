@@ -1,2 +1,2 @@
-$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "belugas/java"
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'belugas/java'

@@ -17,12 +17,12 @@ module Belugas
 
       def java_version_feature
         @java_version_feature ||= [{
-          "type" => "feature",
-          "name" => "Java",
-          "version" => @java_version,
-          "description" => "The application uses Java code",
-          "categories" => ["Language"],
-          "engines" => ["belugas-linguist", "belugas-java"]
+          'type' => 'feature',
+          'name' => 'Java',
+          'version' => @java_version,
+          'description' => 'The application uses Java code',
+          'categories' => ['Language'],
+          'engines' => ['belugas-linguist', 'belugas-java']
         }]
       end
     end
