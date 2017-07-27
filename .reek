@@ -1,0 +1,15 @@
+---
+
+IrresponsibleModule:
+  enabled: false
+InstanceVariableAssumption:
+    enabled: false # This is an error.
+                   # Most of the instance variables
+                   # are initialized
+UncommunicativeParameterName:
+    enabled: false
+UncommunicativeVariableName:
+    enabled: false
+    
+exclude_paths:
+  - spec/
