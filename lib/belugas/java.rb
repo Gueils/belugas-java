@@ -1,10 +1,8 @@
 require 'thor'
 require 'json'
-require 'belugas/java/extractor'
-require 'belugas/java/identifier'
 require 'belugas/java/feature/handler'
-require 'belugas/java/java_file'
 require 'belugas/java/dispatcher'
+require 'belugas/java/maven/maven'
 
 module Belugas
   module Java
@@ -12,9 +10,9 @@ module Belugas
       package_name 'belugas-java'
 
       desc 'analyze', 'Java feature detection JSON'
+      method_option 'java-code', type: :string, default: '.', required: false, aliases: '-p'
       def analyze
-        java_file_path = Belugas::Java::JavaFile.get('/code')
-        dispatcher = Belugas::Java::Dispatcher.new(java_file_path)
+        dispatcher = Belugas::Java::Dispatcher.new(options['java-code'])
         dispatcher.render
       end
     end
