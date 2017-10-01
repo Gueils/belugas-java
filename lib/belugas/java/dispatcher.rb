@@ -30,7 +30,7 @@ module Belugas
       def java_version_feature
         @java_version_feature ||= [{
           'type' => 'feature',
-          'name' => 'Java',
+          'name' => @manage_dependencies.java_platform,
           'version' => @manage_dependencies.java_version,
           'description' => 'The application uses Java code',
           'categories' => ['Language'],

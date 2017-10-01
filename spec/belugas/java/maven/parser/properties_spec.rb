@@ -4,28 +4,28 @@ require 'nokogiri'
 describe Belugas::Java::Maven::Parser::Properties do
 
  before {
-   @document =  Nokogiri::XML(File.open('spec/support/pom_console.xml'))
-   @document_web =  Nokogiri::XML(File.open('spec/support/pom.xml'))
+   @document =  Nokogiri::XML(File.open('spec/support/java_se/pom.xml'))
+   @document_web =  Nokogiri::XML(File.open('spec/support/java_ee/pom.xml'))
  }
 
- subject(:subject_console) { Belugas::Java::Maven::Parser::Properties.new(@document) }
- subject(:subject_web) { Belugas::Java::Maven::Parser::Properties.new(@document_web) }
+ subject(:subject_se) { Belugas::Java::Maven::Parser::Properties.new(@document) }
+ subject(:subject_ee) { Belugas::Java::Maven::Parser::Properties.new(@document_web) }
 
- context 'Maven Propieties Console' do
-   it 'Packaging Jar' do
-     expect(subject_console.packaging).to eq('jar')
+ context 'For a Jave SE' do
+   it 'should return a jar packaging' do
+     expect(subject_se.packaging).to eq('jar')
    end
-   it 'Java Version' do
-      expect(subject_console.java_version).to eq('1.8')
+   it 'should return java version' do
+      expect(subject_se.java_version).to eq('1.8')
    end
  end
 
- context 'Maven Propieties Web' do
-   it 'Packaging Jar' do
-     expect(subject_web.packaging).to eq('war')
+ context 'For a Jave EE' do
+   it 'should return a war packaging' do
+     expect(subject_ee.packaging).to eq('war')
    end
-   it 'Java Version' do
-      expect(subject_web.java_version).to eq('1.7')
+   it 'should return java version' do
+      expect(subject_ee.java_version).to eq('1.7')
    end
  end
 end

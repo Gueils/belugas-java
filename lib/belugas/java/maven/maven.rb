@@ -21,8 +21,12 @@ module Belugas
         end
 
         def find_pom_file
-          Find.find(@path) do |path|
-            return path if path =~ /pom\.xml$/
+          if File.file?(@path)
+            return @path if @path =~ /pom\.xml$/
+          else
+            Find.find(@path) do |path|
+              return path if path =~ /pom\.xml$/
+            end
           end
         end
 
@@ -36,6 +40,10 @@ module Belugas
 
         def java_version
           @properties.java_version
+        end
+
+        def java_platform
+          @properties.packaging == 'jar' ? 'Java SE' : 'Java EE'
         end
 
         def document

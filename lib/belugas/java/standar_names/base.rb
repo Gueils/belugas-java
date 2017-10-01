@@ -13,6 +13,10 @@ module Belugas
         'org.mongodb' => {
           'standard_name' => 'mongodb',
           'categories' => ['Database']
+        },
+        'redis.clients' => {
+          'standard_name' => 'redis',
+          'categories' => ['Database']
         }
       }.freeze
     end

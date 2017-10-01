@@ -6,8 +6,12 @@ module Belugas
           @maven_dependency = maven_dependency
         end
 
-        def name
+        def dependency_name
           @maven_dependency.search('groupId').text
+        end
+
+        def name
+          StandardNames::NAMES[dependency_name]['standard_name'] || dependency_name
         end
 
         def version
@@ -15,7 +19,7 @@ module Belugas
         end
 
         def categories
-          StandardNames::NAMES[name] && StandardNames::NAMES[name]['categories']
+          StandardNames::NAMES[dependency_name] && StandardNames::NAMES[dependency_name]['categories']
         end
 
         private

@@ -8,6 +8,10 @@ module Belugas
           @dependency = dependency
         end
 
+        def name
+          @dependency.name
+        end
+
         def attributes
           {
             'type' => 'feature',
