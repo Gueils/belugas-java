@@ -11,7 +11,8 @@ module Belugas
         end
 
         def name
-          StandardNames::NAMES[dependency_name]['standard_name'] || dependency_name
+          return StandardNames::NAMES[dependency_name]['standard_name'] if StandardNames::NAMES.key? dependency_name
+          dependency_name
         end
 
         def version
