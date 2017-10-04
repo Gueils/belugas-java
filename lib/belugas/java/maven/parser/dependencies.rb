@@ -6,6 +6,8 @@ module Belugas
         class Dependencies
           def initialize(document)
             @document = document
+            @dependencies = []
+            append_dependencies
           end
 
           def pom_dependencies
@@ -13,9 +15,13 @@ module Belugas
           end
 
           def dependencies
-            @maven_dependencies ||= pom_dependencies.map do |dep|
-              dependency = Belugas::Java::Maven::Dependency.new(dep)
-              dependency
+            @dependencies
+          end
+
+          def append_dependencies
+            pom_dependencies.map do |dep|
+              next unless StandardNames::NAMES.key? dep.search('groupId').text
+               @dependencies << Belugas::Java::Maven::Dependency.new(dep)
             end
           end
         end

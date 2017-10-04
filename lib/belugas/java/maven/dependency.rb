@@ -27,7 +27,8 @@ module Belugas
 
         def clean_version
           version = @maven_dependency.search('version').text
-          (version.match /([0-9]\.*[0-9]*).*/)[1].to_s
+          return (version.match /([0-9]\.*[0-9]*).*/)[1].to_s if version =~ /([0-9]\.*[0-9]*).*/
+          version
         end
       end
     end
