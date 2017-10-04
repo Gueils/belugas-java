@@ -6,6 +6,7 @@ gemspec
 group :development, :test do
   gem 'bundler-audit', require: false
   gem 'factory_girl_rails'
+  gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
   gem 'pry'
   gem 'reek'
   gem 'rubocop'
