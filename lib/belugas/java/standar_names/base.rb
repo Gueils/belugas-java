@@ -17,6 +17,14 @@ module Belugas
         'redis.clients' => {
           'standard_name' => 'redis',
           'categories' => ['Database']
+        },
+        'org.springframework' => {
+          'standard_name' => 'springframework',
+          'categories' => ['Framework']
+        },
+        'org.springframework.boot' => {
+          'standard_name' => 'springframework',
+          'categories' => ['Framework']
         }
       }.freeze
     end

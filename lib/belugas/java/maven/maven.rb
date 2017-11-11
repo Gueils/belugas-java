@@ -31,10 +31,12 @@ module Belugas
         end
 
         def features
-          @features ||= @dependencies.dependencies.map do |dep|
-            feat = Belugas::Java::Feature::Builder.new(dep)
-            feat
-          end
+          @features ||= {}.tap do |feat|
+            @dependencies.dependencies.each do |dep|
+              feat_bluider = Belugas::Java::Feature::Builder.new(dep)
+              feat[feat_bluider.name]= feat_bluider
+            end
+          end  
           @features
         end
 
