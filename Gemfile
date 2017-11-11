@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 # Specify your gem's dependencies in belugas-java.gemspec
 gemspec
+gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 
 group :development, :test do
   gem 'bundler-audit', require: false
   gem 'factory_girl_rails'
-  gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
   gem 'pry'
   gem 'reek'
   gem 'rubocop'

@@ -19,7 +19,7 @@ module Belugas
             if source.nil?
               source = @document.search('project/build/plugins/plugin/configuration/source').first
             end
-            source = JAVA_VERSION_DEFAULT if source.nil?
+            return JAVA_VERSION_DEFAULT if source.nil? || source.text == '${java.version}'
             source.text
           end
         end

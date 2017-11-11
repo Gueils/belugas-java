@@ -2,7 +2,6 @@ require 'thor'
 require 'json'
 require 'belugas/java/dispatcher'
 require 'belugas/java/maven/maven'
-require 'pry'
 
 module Belugas
   module Java
