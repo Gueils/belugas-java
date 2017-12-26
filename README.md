@@ -73,7 +73,7 @@ The Belugas Java CLI is distributed and run as a [Docker](https://hub.docker.com
 Fire up your terminal and run: 
 
 ```console
-docker pull WhalesIL/belugas-java:latest
+docker pull gueils/belugas-java:latest
 ```
 
 And that's it! 
@@ -92,7 +92,7 @@ And then just execute the following command:
 docker run \
   --interactive --tty --rm \
   --volume "$PWD":/code \
-  icalialabs/belugas-java
+  gueils/belugas-java
 ```
 
 And voilá! The terminal will stream a json output for each of the features detected in the following format: 
